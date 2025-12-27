@@ -2,23 +2,29 @@ import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import Page from "../components/Page";
-
 import shared from "../utils/sharedJson";
 
 export default function Environment() {
-    const [timeFrozen, setTimeFrozen] = useState(false);
-    const [hour, setHour] = useState("0");
-    const [minute, setMinute] = useState("0");
-    const [second, setSecond] = useState("0");
-    const [weather, setWeather] = useState("CLEAR");
+    const state = window.STATE || {
+        timeFrozen: false,
+        time: [0, 0, 0],
+        weather: "CLEAR"
+    };
 
-    return <Page text="environment settings">
+    const [timeFrozen, setTimeFrozen] = useState(state.timeFrozen);
+    const [hour, setHour] = useState(state.time[0]);
+    const [minute, setMinute] = useState(state.time[1]);
+    const [second, setSecond] = useState(state.time[2]);
+    const [weather, setWeather] = useState(state.weather);
+
+    return <div>
+        <h1>Environment</h1>
         <div>
             <label>time frozen </label>
-            <input type="checkbox" value={timeFrozen} onChange={(e) => {
-                setTimeFrozen(e.target.checked);
-                axios.post("/setTimeFrozen", { frozen: timeFrozen });
+            <input type="checkbox" checked={timeFrozen} onChange={(e) => {
+                const checked = e.target.checked;
+                setTimeFrozen(checked);
+                axios.post("/setTimeFrozen", { frozen: checked });
             }} /><br/><br/>
 
             <label>hour </label>
@@ -35,8 +41,10 @@ export default function Environment() {
             }}>set time</button><br/><br/>
 
             <label>weather </label>
-            <select onChange={(e) => {
-                axios.post("/setWeather", { weather: e.target.value })
+            <select value={weather} onChange={(e) => {
+                const choice = e.target.value;
+                setWeather(choice);
+                axios.post("/setWeather", { weather: choice });
             }}>
                 {shared.weatherTypes.map((weather) => (
                     <option key={weather} value={weather}>{weather}</option>
@@ -44,6 +52,6 @@ export default function Environment() {
             </select>
         </div>
 
-        <Link to="/"><button>Home</button></Link>
-    </Page>
+        <Link to="/"><button>home</button></Link>
+    </div>
 }

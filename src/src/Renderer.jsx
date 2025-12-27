@@ -10,8 +10,11 @@ export default function Renderer() {
     useEffect(() => {
         function listener(event) {
             const message = event.data.message;
+            const state = event.data.state;
 
-            if (!message) { return; }
+            if (!message || !state) { return; }
+
+            window.STATE = state;
 
             switch(message) {
                 case "open":
@@ -27,11 +30,16 @@ export default function Renderer() {
         return () => window.removeEventListener("message", listener);
     }, []);
 
+    useEffect(() => {
+        function listener(e) { if (e.key === "F4") axios.post("/toggle"); }
+        window.addEventListener("keydown", listener)
+        return () => window.removeEventListener("keydown", listener);
+    }, []);
+
     if (!visible) return null;
 
     return (
         <div id="container">
-            <button id="close-btn" onClick={() => axios.post("/toggle")}>X</button>
             <App/>
         </div>
     )

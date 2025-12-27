@@ -1,37 +1,57 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 
+:root {
+    --page-font: "Roboto Mono", Arial, Helvetica, sans-serif;
+}
+
 body {
     display: flex;
+    text-align: center;
 
     color: white;
-    font-family: "Roboto Mono", Arial, Helvetica, sans-serif;
+    font-family: var(--page-font);
 
     margin: 0;
 }
 
-h1, h2 {
+button {
+    width: 200px;
+
+    cursor: pointer;
+    transition: ease-in-out 0.1s;
+}
+
+button:hover {
+    scale: 1.03;
+}
+
+button:active {
+    scale: 0.97;
+}
+
+input {
     text-align: center;
 }
 
-#close-btn {
-    position: absolute;
-
+button, input {
     background: none;
-    border: none;
-
-    right: 10px;
-    top: 10px;
 
     color: white;
-    font-weight: bold;
-    font-size: 25px;
 
-    cursor: pointer;
+    font-size: 15px;
+    font-family: var(--page-font);
+
+    border: 2px solid lightgray;
+    border-radius: 5px;
+    outline: none;
+
+    height: 30px;
 }
 
 #container {
     display: flex;
     position: relative;
+    align-items: center;
     justify-content: center;
 
     background-color: rgba(20, 20, 20, 0.75);
@@ -39,6 +59,18 @@ h1, h2 {
     border: 5px solid lightgray;
     border-radius: 15px;
 
-    width: 400px;
-    height: 500px;
+    width: 350px;
+
+    padding-bottom: 30px;
+}
+
+#page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    padding: 10px 0;
 }
