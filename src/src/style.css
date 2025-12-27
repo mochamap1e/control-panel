@@ -1,76 +1,53 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-    --page-font: "Roboto Mono", Arial, Helvetica, sans-serif;
+    --font: "Jost", Arial, Helvetica, sans-serif;
+    --accent: lightcoral;
 }
 
 body {
     display: flex;
-    text-align: center;
 
     color: white;
-    font-family: var(--page-font);
+    font-family: var(--font);
 
-    margin: 0;
+    margin: 25px;
 }
 
 button {
-    width: 200px;
+    width: 100%;
 
-    cursor: pointer;
     transition: ease-in-out 0.1s;
 }
-
-button:hover {
-    scale: 1.03;
-}
-
-button:active {
-    scale: 0.97;
-}
-
-input {
-    text-align: center;
-}
+button:hover { transform: scale(1.03); }
+button:active { transform: scale(0.97); }
 
 button, input {
     background: none;
 
     color: white;
-
-    font-size: 15px;
-    font-family: var(--page-font);
-
-    border: 2px solid lightgray;
-    border-radius: 5px;
-    outline: none;
+    border: 3px solid var(--accent);
 
     height: 30px;
+
+    font-family: var(--font);
+
+    cursor: pointer;
+}
+
+h1 {
+    text-align: center;
 }
 
 #container {
     display: flex;
-    position: relative;
     align-items: center;
     justify-content: center;
 
-    background-color: rgba(20, 20, 20, 0.75);
-    
-    border: 5px solid lightgray;
-    border-radius: 15px;
+    background-color: rgba(20, 20, 20, 0.8);
+    border: 5px solid var(--accent);
 
-    width: 350px;
+    width: 300px;
 
-    padding-bottom: 30px;
-}
-
-#page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    gap: 20px;
-
-    padding: 10px 0;
+    padding: 30px;
 }

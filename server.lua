@@ -15,14 +15,29 @@ local state = {
     weather = "CLEAR"
 }
 
+function sendState(targetPlayer)
+    TriggerClientEvent("sendState", targetPlayer, state)
+end
+
+local lastState = json.encode(state)
 Citizen.CreateThread(function()
     while true do
-        TriggerClientEvent("syncState", -1, state)
-        Citizen.Wait(500)
+        local currentState = json.encode(state)
+
+        if currentState ~= lastState then
+            sendState(-1)
+            lastState = currentState
+        end
+        
+        Citizen.Wait(100)
     end
 end)
 
 ---------- EVENTS ----------
+
+RegisterNetEvent("requestState", function()
+    sendState(source)
+end)
 
 RegisterNetEvent("setTimeFrozen", function(data)
     local newFrozen = data.frozen

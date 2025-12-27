@@ -8,9 +8,13 @@ local function applyState()
     SetWeatherTypeNowPersist(state.weather)
 end
 
-RegisterNetEvent("syncState", function(newState)
+RegisterNetEvent("sendState", function(newState)
     state = newState
     applyState()
+end)
+
+AddEventHandler("playerSpawned", function()
+    TriggerServerEvent("requestState")
 end)
 
 ---------- CALLBACKS ----------
