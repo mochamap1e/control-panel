@@ -4,6 +4,7 @@ fx_version "cerulean"
 ui_page "html/index.html"
 
 files {
+    "shared.json",
     "html/index.html",
     "html/bundle.js",
     "html/style.css"

@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-import App from "./App";
+import shared from "./utils/sharedJson";
 import { isFiveM } from "./utils/isFiveM";
+
+import App from "./App";
 
 export default function Renderer() {
     const [visible, setVisible] = useState(!isFiveM);
@@ -31,7 +33,7 @@ export default function Renderer() {
     }, []);
 
     useEffect(() => {
-        function listener(e) { if (e.key === "F4") axios.post("/toggle"); }
+        function listener(e) { if (e.key === shared.menuKey) axios.post("/toggle"); }
         window.addEventListener("keydown", listener)
         return () => window.removeEventListener("keydown", listener);
     }, []);

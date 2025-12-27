@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import axios from "axios";
+
+import Page from "../components/Page";
+import PageLink from "../components/PageLink";
 
 export default function Home() {
     return (
-        <div>
-            <h1>Control Panel</h1>
-            <Link to="/environment"><button>environment</button></Link>
-        </div>
+        <Page title="Control Panel" isHome={true}>
+            <PageLink to="environment">Environment</PageLink>
+            <button onClick={() => axios.post("/toggle")}>Close</button>
+        </Page>
     )
 }

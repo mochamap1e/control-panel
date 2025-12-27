@@ -1,3 +1,11 @@
+local shared = json.decode(LoadResourceFile(GetCurrentResourceName(), "shared.json"))
+
+local key = shared.menuKey
+
+BeginTextCommandThefeedPost("STRING")
+AddTextComponentSubstringPlayerName("Press " .. key .. " to open the control panel.")
+EndTextCommandThefeedPostTicker(true, true)
+
 ---------- SYNCING ----------
 
 local state
@@ -25,7 +33,6 @@ RegisterNuiCallback("toggle", function (_, cb)
 end)
 
 for _, relay in pairs({
-    "setTimeFrozen",
     "setTime",
     "setWeather"
 }) do
@@ -56,4 +63,4 @@ function toggleMenu()
 end
 
 RegisterCommand("toggleMenu", toggleMenu)
-RegisterKeyMapping("toggleMenu", "Toggles the mod menu.", "keyboard", "F4")
+RegisterKeyMapping("toggleMenu", "Toggles the mod menu.", "keyboard", key)

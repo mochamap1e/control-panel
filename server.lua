@@ -10,7 +10,6 @@ end
 ---------- SYNCING ----------
 
 local state = {
-    timeFrozen = false,
     time = {0, 0, 0},
     weather = "CLEAR"
 }
@@ -37,14 +36,6 @@ end)
 
 RegisterNetEvent("requestState", function()
     sendState(source)
-end)
-
-RegisterNetEvent("setTimeFrozen", function(data)
-    local newFrozen = data.frozen
-
-    if type(newFrozen) ~= "boolean" then return end
-
-    state.timeFrozen = newFrozen
 end)
 
 RegisterNetEvent("setTime", function(data)
