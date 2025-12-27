@@ -32,7 +32,7 @@ export default function Renderer() {
     return (
         <div id="container">
             <button id="close-btn" onClick={() => axios.post("/toggle")}>X</button>
-            <App />
+            <App/>
         </div>
     )
 }

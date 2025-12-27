@@ -9,23 +9,16 @@ end
 
 ---------- SYNCING ----------
 
-local state = { -- the values that will be kept track of and sent to clients
+local state = {
     timeFrozen = false,
     time = {0, 0, 0},
     weather = "CLEAR"
 }
 
-local lastState = json.encode(state)
-Citizen.CreateThread(function() -- send state to client
+Citizen.CreateThread(function()
     while true do
-        local currentState = json.encode(state)
-
-        if lastState ~= currentState then
-            TriggerClientEvent("syncState", -1, state)
-            lastState = currentState
-        end
-        
-        Citizen.Wait(100)
+        TriggerClientEvent("syncState", -1, state)
+        Citizen.Wait(500)
     end
 end)
 
