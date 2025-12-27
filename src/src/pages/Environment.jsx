@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState } from "react";
 
 import Page from "../components/Page";
-import Checkbox from "../components/Checkbox"
 import Dropdown from "../components/Dropdown";
 import InputBox from "../components/InputBox";
 
