@@ -1,0 +1,1 @@
+export const isFiveM = typeof window.GetParentResourceName === "function";
