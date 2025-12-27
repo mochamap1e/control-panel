@@ -2,10 +2,6 @@ local shared = json.decode(LoadResourceFile(GetCurrentResourceName(), "shared.js
 
 local key = shared.menuKey
 
-BeginTextCommandThefeedPost("STRING")
-AddTextComponentSubstringPlayerName("Press " .. key .. " to open the control panel.")
-EndTextCommandThefeedPostTicker(true, true)
-
 ---------- SYNCING ----------
 
 local state
@@ -23,6 +19,19 @@ end)
 
 AddEventHandler("playerSpawned", function()
     TriggerServerEvent("requestState")
+end)
+
+---------- EVENTS ----------
+
+local displayedInfo = false
+AddEventHandler("playerSpawned", function()
+    if not displayedInfo then
+        displayedInfo = true
+        
+        BeginTextCommandThefeedPost("STRING")
+        AddTextComponentSubstringPlayerName("Press " .. key .. " to open the control panel.")
+        EndTextCommandThefeedPostTicker(true, true)
+    end
 end)
 
 ---------- CALLBACKS ----------
