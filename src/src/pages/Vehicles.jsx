@@ -1,5 +1,7 @@
 export default function Vehicles() {
     return (
-        <h1>vehicles</h1>
+        <div className="page">
+            <h1>Vehicles</h1>
+        </div>
     )
 }

@@ -1,5 +1,7 @@
 export default function Environment() {
     return (
-        <h1>environment</h1>
+        <div className="page">
+            <h1>Environment</h1>
+        </div>
     )
 }

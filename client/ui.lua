@@ -8,19 +8,19 @@ local function toggleMenu()
 
     SetNuiFocus(isMenuOpen, isMenuOpen)
 
-    local message
+    local visible
 
     if isMenuOpen then
-        message = "open"
+        visible = true
     else
-        message = "close"
+        visible = false
     end
 
     SendNuiMessage(json.encode({
-        message = message,
-        state = State.server,
+        visible = visible,
+        serverState = State.server,
         clientState = State.client,
-        build = tostring(GetGameBuildNumber())
+        gameBuild = tostring(GetGameBuildNumber())
     }))
 end
 

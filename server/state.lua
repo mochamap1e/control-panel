@@ -1,7 +1,4 @@
-State = {
-    time = {0, 0, 0},
-    weather = "CLEAR"
-}
+State = {}
 
 local lastState = json.encode(State)
 
