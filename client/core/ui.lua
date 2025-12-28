@@ -39,6 +39,6 @@ RegisterKeyMapping("toggleMenu", "Toggles Control Panel.", "keyboard", Data.menu
 AddEventHandler("playerSpawned", function()
     if not displayedInfo then
         displayedInfo = true
-        Notifier:notify("Press " .. Data.menuKey .. " to open the control panel.")
+        Notify("Press " .. Data.menuKey .. " to open the control panel.")
     end
 end)

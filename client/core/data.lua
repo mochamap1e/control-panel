@@ -1,0 +1,1 @@
+Data = json.decode(LoadResourceFile(GetCurrentResourceName(), "client/data.json"))

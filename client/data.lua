@@ -1,1 +1,0 @@
-Data = json.decode(LoadResourceFile(GetCurrentResourceName(), "data.json"))

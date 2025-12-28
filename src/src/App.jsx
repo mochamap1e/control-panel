@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
-import data from "../../data.json";
+import data from "../../client/data.json";
 import { isFiveM } from "./utils/isFiveM";
 
 import Button from "./components/Button";

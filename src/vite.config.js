@@ -6,7 +6,7 @@ export default defineConfig({
     base: "./",
     build: {
         emptyOutDir: true,
-        outDir: "../client/ui",
+        outDir: "../client/html",
         assetsDir: ".",
         rolldownOptions: {
             output: {
