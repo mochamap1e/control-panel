@@ -32,13 +32,13 @@ end)
 -- register keys
 
 RegisterCommand("toggleMenu", toggleMenu)
-RegisterKeyMapping("toggleMenu", "Toggles Control Panel.", "keyboard", Shared.menuKey)
+RegisterKeyMapping("toggleMenu", "Toggles Control Panel.", "keyboard", Data.menuKey)
 
 -- show info
 
 AddEventHandler("playerSpawned", function()
     if not displayedInfo then
         displayedInfo = true
-        Notifier:notify("Press " .. Shared.menuKey .. " to open the control panel.")
+        Notifier:notify("Press " .. Data.menuKey .. " to open the control panel.")
     end
 end)

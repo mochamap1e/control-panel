@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
+import data from "../../data.json";
 import { isFiveM } from "./utils/isFiveM";
 
 import Button from "./components/Button";
@@ -11,6 +12,8 @@ import Vehicles from "./pages/Vehicles";
 import Environment from "./pages/Environment";
 
 import "./style.css";
+
+window.DATA = data;
 
 const pages = {
     "Player": {
@@ -51,7 +54,7 @@ export default function App() {
     // CLOSE KEYBIND
     useEffect(() => {
         function listener(event) {
-            if (event.key === window.SHARED.menuKey) axios.post("toggle");
+            if (event.key === window.DATA.menuKey) axios.post("toggle");
         }
 
         window.addEventListener("keydown", listener);
