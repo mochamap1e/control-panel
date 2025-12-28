@@ -1,5 +1,5 @@
 local truthyWeather = {}
-for _, weather in ipairs(shared.weatherTypes) do
+for _, weather in ipairs(Shared.weatherTypes) do
     truthyWeather[weather] = true
 end
 

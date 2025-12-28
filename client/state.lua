@@ -1,10 +1,6 @@
 State = {
     server = {},
-    client = {
-        invincible = false,
-        infiniteStamina = false,
-        neverWanted = false
-    }
+    client = {}
 }
 
 RegisterNetEvent("sendState", function(newState)

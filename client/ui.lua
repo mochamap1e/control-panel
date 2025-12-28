@@ -32,7 +32,7 @@ end)
 -- register keys
 
 RegisterCommand("toggleMenu", toggleMenu)
-RegisterKeyMapping("toggleMenu", "Toggles the mod menu.", "keyboard", Shared.menuKey)
+RegisterKeyMapping("toggleMenu", "Toggles Control Panel.", "keyboard", Shared.menuKey)
 
 -- show info
 

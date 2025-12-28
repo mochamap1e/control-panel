@@ -2,94 +2,96 @@
 
 :root {
     --font: "Jost", Arial, Helvetica, sans-serif;
-    --accent: lightgreen;
 }
 
 body {
     display: flex;
+    align-items: center;
+    justify-content: center;
+
     color: white;
     font-family: var(--font);
-    margin: 25px;
+
+    height: 100vh;
+
+    margin: 0;
 }
 
-h2 {
-    font-weight: normal;
-}
-
-h1, h2 {
-    text-align: center;
-    margin: 15px 0;
+h1 {
+    font-size: 28px;
+    margin: 0 0 20px 0;
 }
 
 button {
-    width: 100%;
-    cursor: pointer;
-    transition: ease-in-out 0.1s;
-}
-
-option {
-    color: black;
-}
-
-button:hover { transform: scale(1.03); }
-button:active { transform: scale(0.97); }
-
-button, input, select {
-    background: none;
-    height: 40px;
-    font-family: var(--font);
-    color: white;
-    border: 3px solid var(--accent);
-    outline: none;
-}
-
-button, input, select, label {
-    font-size: 17px;
-}
-
-.elements {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    gap: 15px;}
-
-.back {
-    border: 3px solid var(--accent2);
-}
-
-.input {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.input label {
-    text-align: center;
-}
-
-.input input[type="text"], .input input[type="number"], .input select {
-    flex: 1;
-    padding: 0 10px;
-    margin-left: auto;
-    outline: none;
-}
-
-#container {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(20, 20, 20, 0.8);
-    backdrop-filter: blur(20px);
-    border: 5px solid var(--accent);
-    padding: 30px;
+
+    background-color: rgba(20, 20, 20, 0.25);
+
+    border: 2px solid gray;
+    border-radius: 5px;
+
+    color: white;
+    font-family: var(--font);
+    font-size: 15px;
+
+    width: 80%;
+    height: 35px;
+
+    gap: 10px;
+
+    outline: none;
+    cursor: pointer;
 }
 
-#wanted-buttons {
+button img {
+    width: 16px;
+}
+
+.page {
     display: flex;
+    align-items: center;
+    flex-direction: column;
+
     gap: 10px;
 }
 
-#wanted-buttons button {
-    width: 40px;
-    height: 40px;
+/* CONTAINERS */
+
+#container {
+    display: flex;
+    background-color: rgba(10, 10, 10, 0.8);
+
+    border: 6px solid gray;
+    border-radius: 10px;
+
+    width: 650px;
+}
+
+#pages-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    gap: 10px;
+}
+
+/* PANES */
+
+#left-pane {
+    background-color: rgba(20, 20, 20, 0.25);
+
+    width: 35%;
+}
+
+#right-pane {
+    flex: 1;
+}
+
+#left-pane, #right-pane {
+    padding: 40px 15px;
 }
