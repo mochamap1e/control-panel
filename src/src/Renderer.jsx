@@ -13,11 +13,11 @@ export default function Renderer() {
         function listener(event) {
             const message = event.data.message;
             const state = event.data.state;
+            const clientState = event.data.clientState;
+            const build = event.data.build;
 
-            if (!message || !state) { return; }
-
-            window.STATE = state;
-
+            if (!message || !state || !clientState || !build) { return; }
+            
             switch(message) {
                 case "open":
                     setVisible(true); break;
@@ -26,6 +26,10 @@ export default function Renderer() {
                 default:
                     return;
             }
+
+            window.STATE = state;
+            window.CLIENTSTATE = clientState;
+            window.BUILD = build;
         }
 
         window.addEventListener("message", listener);
@@ -33,7 +37,7 @@ export default function Renderer() {
     }, []);
 
     useEffect(() => {
-        function listener(e) { if (e.key === shared.menuKey) axios.post("/toggle"); }
+        function listener(e) { if (e.key === shared.menuKey) axios.post("toggle"); }
         window.addEventListener("keydown", listener)
         return () => window.removeEventListener("keydown", listener);
     }, []);

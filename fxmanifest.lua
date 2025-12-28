@@ -1,14 +1,9 @@
 game "gta5"
 fx_version "cerulean"
 
-ui_page "html/index.html"
+ui_page "client/ui/index.html"
 
-files {
-    "shared.json",
-    "html/index.html",
-    "html/bundle.js",
-    "html/style.css"
-}
+files { "client/ui/*", "shared.json" }
 
-client_script "client.lua"
-server_script "server.lua"
+client_scripts { "client/*.lua" }
+server_scripts { "server/*.lua" }

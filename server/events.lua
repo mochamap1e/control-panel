@@ -1,5 +1,3 @@
----------- VARS ----------
-
 local shared = json.decode(LoadResourceFile(GetCurrentResourceName(), "shared.json"))
 
 local truthyWeather = {}
@@ -7,35 +5,9 @@ for _, weather in ipairs(shared.weatherTypes) do
     truthyWeather[weather] = true
 end
 
----------- SYNCING ----------
-
-local state = {
-    time = {0, 0, 0},
-    weather = "CLEAR"
-}
-
-function sendState(targetPlayer)
-    TriggerClientEvent("sendState", targetPlayer, state)
-end
-
-local lastState = json.encode(state)
-Citizen.CreateThread(function()
-    while true do
-        local currentState = json.encode(state)
-
-        if currentState ~= lastState then
-            sendState(-1)
-            lastState = currentState
-        end
-        
-        Citizen.Wait(100)
-    end
-end)
-
----------- EVENTS ----------
-
-RegisterNetEvent("requestState", function()
-    sendState(source)
+RegisterNetEvent("setWantedLevel", function(level)
+    if not level then return end
+    SetPlayerWantedLevel(source, math.max(0, math.min(tonumber(level) or 0, 5)), false)
 end)
 
 RegisterNetEvent("setTime", function(data)

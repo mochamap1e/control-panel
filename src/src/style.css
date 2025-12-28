@@ -2,7 +2,7 @@
 
 :root {
     --font: "Jost", Arial, Helvetica, sans-serif;
-    --accent: palevioletred;
+    --accent: lightgreen;
 }
 
 body {
@@ -12,10 +12,13 @@ body {
     margin: 25px;
 }
 
-h1 {
+h2 {
+    font-weight: normal;
+}
+
+h1, h2 {
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    margin: 15px 0;
 }
 
 button {
@@ -47,8 +50,8 @@ button, input, select, label {
 .elements {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-}
+    width: 300px;
+    gap: 15px;}
 
 .back {
     border: 3px solid var(--accent2);
@@ -78,6 +81,15 @@ button, input, select, label {
     background-color: rgba(20, 20, 20, 0.8);
     backdrop-filter: blur(20px);
     border: 5px solid var(--accent);
-    width: 325px;
     padding: 30px;
+}
+
+#wanted-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+#wanted-buttons button {
+    width: 40px;
+    height: 40px;
 }

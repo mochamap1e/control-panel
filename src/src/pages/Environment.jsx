@@ -20,6 +20,7 @@ export default function Environment() {
 
     return (
         <Page title="Environment">
+            <h2>Time of Day</h2>
             <InputBox
                 label="Hour"
                 type="number"
@@ -42,13 +43,15 @@ export default function Environment() {
             />
 
             <button onClick={() => {
-                axios.post("/setTime", { hour: hour, minute: minute, second: second });
-            }}>Set Time</button>
+                axios.post("setTime", { hour: hour, minute: minute, second: second });
+            }}>Set time</button>
+
+            <h2>Weather</h2>
 
             <Dropdown label="Weather" value={weather} onChange={(e) => {
                 const choice = e.target.value;
                 setWeather(choice);
-                axios.post("/setWeather", { weather: choice });
+                axios.post("setWeather", { weather: choice });
             }}>
                 {shared.weatherTypes.map((weather) => (
                     <option key={weather} value={weather}>{weather}</option>
