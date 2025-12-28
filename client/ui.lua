@@ -1,5 +1,3 @@
-local shared = json.decode(LoadResourceFile(GetCurrentResourceName(), "shared.json"))
-
 local isMenuOpen = false
 local displayedInfo = false
 
@@ -34,13 +32,13 @@ end)
 -- register keys
 
 RegisterCommand("toggleMenu", toggleMenu)
-RegisterKeyMapping("toggleMenu", "Toggles the mod menu.", "keyboard", shared.menuKey)
+RegisterKeyMapping("toggleMenu", "Toggles the mod menu.", "keyboard", Shared.menuKey)
 
 -- show info
 
 AddEventHandler("playerSpawned", function()
     if not displayedInfo then
         displayedInfo = true
-        Notifier:notify("Press " .. shared.menuKey .. " to open the control panel.")
+        Notifier:notify("Press " .. Shared.menuKey .. " to open the control panel.")
     end
 end)

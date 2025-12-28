@@ -1,12 +1,12 @@
-local state = {
+State = {
     time = {0, 0, 0},
     weather = "CLEAR"
 }
 
-local lastState = json.encode(state)
+local lastState = json.encode(State)
 
 function sendState(targetPlayer)
-    TriggerClientEvent("sendState", targetPlayer, state)
+    TriggerClientEvent("sendState", targetPlayer, State)
 end
 
 RegisterNetEvent("requestState", function()
@@ -15,7 +15,7 @@ end)
 
 Citizen.CreateThread(function()
     while true do
-        local currentState = json.encode(state)
+        local currentState = json.encode(State)
 
         if currentState ~= lastState then
             sendState(-1)

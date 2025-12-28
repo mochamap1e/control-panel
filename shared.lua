@@ -1,0 +1,1 @@
+Shared = json.decode(LoadResourceFile(GetCurrentResourceName(), "shared.json"))
